@@ -1,0 +1,25 @@
+.header-bg-container {
+  height: 9vh;
+  background-color: rgb(5, 5, 5);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-heading {
+  font-size: 35px;
+  font-family: cursive;
+  color: white;
+  margin-left: 50px;
+}
+
+@media (max-width: 500px) {
+  .header-bg-container {
+    height: 7vh;
+  }
+
+  .header-heading {
+    font-size: 20px;
+    margin-left: 20px;
+  }
+}

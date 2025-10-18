@@ -1,0 +1,259 @@
+.home-bg-container {
+  min-height: 91vh;
+  background-color: rgb(5, 5, 5);
+  font-family: "Roboto";
+  padding: 100px;
+  padding-top: 30px;
+}
+
+.home-profile-name-cont {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+.home-profile-image {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.home-profile-name {
+  color: white;
+  font-size: 20px;
+  margin-right: 4px;
+}
+
+.home-profile-tic {
+  color: #1da1f2;
+  font-size: 18px;
+}
+
+.home-post {
+  width: 100%;
+}
+
+.home-icons-cont {
+  display: flex;
+  margin-top: 8px;
+}
+
+.home-unliked-icon {
+  color: white;
+  font-size: 30px;
+  margin-right: 12px;
+}
+
+.home-liked-icon {
+  color: red;
+  font-size: 30px;
+  margin-right: 12px;
+}
+
+.home-comment-icon {
+  color: rgb(239, 236, 236);
+  font-size: 32px;
+}
+
+.home-icon-btn {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.home-comments-section {
+  margin-left: 30px;
+  transition: 0.1;
+}
+
+.home-comments-heading {
+  font-size: 20px;
+  color: white;
+  margin-bottom: 30px;
+}
+
+.home-inp-cont {
+  width: 400px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid grey;
+  border-radius: 13px;
+  overflow: hidden;
+  padding: 4px;
+}
+
+.home-inp {
+  width: 85%;
+  border: none;
+  background-color: rgb(5, 5, 5);
+  font-size: 15px;
+  color: white;
+  padding-left: 13px;
+  outline: none;
+}
+
+.home-inp-send-btn {
+  margin-right: 4px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.home-comm-send-icon {
+  color: white;
+}
+
+.home-comments-list-cont {
+  padding: 0;
+  margin: 0;
+  margin-left: 20px;
+  margin-bottom: 30px;
+}
+
+.home-comment-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 25px;
+}
+
+.home-comment-profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.home-comment-username-cont {
+  color: white;
+}
+
+.home-comment-username {
+  padding: 0;
+  margin: 0;
+  margin-top: 3px;
+  font-size: 13px;
+}
+
+.home-coment-comm {
+  padding: 0;
+  margin: 0;
+  margin-top: 9px;
+  font-size: 17px;
+  color: rgb(250, 248, 243);
+  margin-left: 5px;
+}
+
+.home-no-comments {
+  color: grey;
+  font-size: 20px;
+  margin-left: 30px;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 500px) {
+  .home-bg-container {
+    min-height: 93vh;
+    padding: 5px;
+    padding-top: 10px;
+  }
+
+  .home-profile-name-cont {
+    margin-left: 10px;
+    margin-bottom: 5px;
+  }
+
+  .home-profile-image {
+    width: 35px;
+    height: 35px;
+    margin-right: 7px;
+  }
+
+  .home-profile-name {
+    font-size: 13px;
+    margin-right: 3px;
+  }
+
+  .home-profile-tic {
+    font-size: 12px;
+  }
+
+  .home-post {
+    width: 100%;
+  }
+
+  .home-icons-cont {
+    margin-top: 0px;
+  }
+
+  .home-unliked-icon {
+    font-size: 20px;
+    margin-right: 0px;
+  }
+
+  .home-liked-icon {
+    font-size: 20px;
+    margin-right: 0px;
+  }
+
+  .home-comment-icon {
+    font-size: 23px;
+  }
+
+  .home-comments-section {
+    margin-left: 15px;
+    transition: 0.1;
+  }
+
+  .home-comments-heading {
+    font-size: 15px;
+    margin-bottom: 15px;
+  }
+
+  .home-inp-cont {
+    width: 250px;
+    border-radius: 12px;
+    padding: 2px;
+  }
+
+  .home-inp {
+    font-size: 12px;
+    padding-left: 7px;
+  }
+
+  .home-inp-send-btn {
+    margin-right: 0px;
+  }
+
+  .home-comments-list-cont {
+    margin-left: 10px;
+    margin-bottom: 20px;
+  }
+
+  .home-comment-item {
+    margin-bottom: 17px;
+  }
+
+  .home-comment-profile-pic {
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+  }
+
+  .home-comment-username {
+    font-size: 11px;
+  }
+
+  .home-coment-comm {
+    margin-top: 9px;
+    font-size: 13px;
+    margin-left: 5px;
+  }
+
+  .home-no-comments {
+    font-size: 12px;
+    margin-bottom: 20px;
+  }
+}
