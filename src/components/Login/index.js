@@ -6,7 +6,7 @@ import Cookies from "js-cookie";
 
 import "./index.css";
 
-const socket = io.connect("http://localhost:3001");
+const socket = io.connect("https://post-backkend.onrender.com");
 
 const Login = () => {
   const navigate = useNavigate();
@@ -32,7 +32,7 @@ const Login = () => {
   });
 
   const userCheckin = async () => {
-    const url = "http://localhost:3001/login/";
+    const url = "https://post-backkend.onrender.com/login/";
     const userData = { usernameOrMail: inpText };
     const options = {
       method: "POST",
@@ -58,7 +58,7 @@ const Login = () => {
   };
 
   const userSignUp = async () => {
-    const url = "http://localhost:3001/users/";
+    const url = "https://post-backkend.onrender.com/users/";
     const userData = { username: inpUsername, name: inpName, email: inpEmail };
     const options = {
       method: "POST",
