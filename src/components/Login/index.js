@@ -163,7 +163,7 @@ const Login = () => {
             getOtpBtnClicked && "get-otp-btn-clicled"
           }`}
         >
-          Get OTP
+          Get Code
         </button>
         {getOtpBtnClicked && loginErrorMsg === "" && <Loader />}
       </div>
@@ -177,12 +177,12 @@ const Login = () => {
       </p>
       <div className="login-label-inp-cont">
         <p className="login-otp-content">
-          We have sent a 6 digit OTP to your mail {inpText}.
+          Enter the code {otpGenerated} to login / sign up.
         </p>
-        <label htmlFor="login-inppp">One Time Password:</label>
+        <label htmlFor="login-inppp">Code:</label>
         <input
           type="text"
-          placeholder="Enter OTP"
+          placeholder="Enter Code"
           className="login-inp"
           id="login-inppp"
           value={inpOtp}
@@ -193,7 +193,7 @@ const Login = () => {
         />
         <p className="login-error-msg">{otpVerificationErrorMsg}</p>
         <button type="button" className="login-resend-btn">
-          Resend OTP
+          Resend Code
         </button>
       </div>
       <div className="login-btn-loader-cont">
@@ -286,7 +286,7 @@ const Login = () => {
   }
   return (
     <div className="login-bg-container">
-      <h1 className="login-heading">UdayKiran</h1>
+      <h1 className="login-heading">Fresite</h1>
       {renderView()}
     </div>
   );
