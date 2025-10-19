@@ -138,6 +138,10 @@ const Login = () => {
     userSignUp();
   };
 
+  const refreshCode = () => {
+    socket.emit("entered_mail", inpText);
+  }
+
   const LoginView = () => (
     <form onSubmit={loginFormSubmitted} className="login-inner-form-container">
       <p className="login-sigup">Login / Sign Up</p>
@@ -192,8 +196,8 @@ const Login = () => {
           }}
         />
         <p className="login-error-msg">{otpVerificationErrorMsg}</p>
-        <button type="button" className="login-resend-btn">
-          Resend Code
+        <button type="button" className="login-resend-btn" onClick={refreshCode}>
+          Refresh Code
         </button>
       </div>
       <div className="login-btn-loader-cont">
