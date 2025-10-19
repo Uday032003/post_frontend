@@ -6,7 +6,9 @@ import Cookies from "js-cookie";
 
 import "./index.css";
 
-const socket = io.connect("https://post-backkend.onrender.com");
+const socket = io.connect("https://post-backkend.onrender.com", {
+  transports: ["websocket", "polling"],
+});
 
 const Login = () => {
   const navigate = useNavigate();
