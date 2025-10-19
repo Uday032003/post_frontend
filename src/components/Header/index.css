@@ -13,6 +13,65 @@
   margin-left: 50px;
 }
 
+.header-logout-btn {
+  background-color: rgb(22, 93, 233);
+  border-radius: 4px;
+  border: none;
+  margin-right: 50px;
+  color: white;
+  font-size: 15px;
+  font-family: "Roboto";
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.header-logout-icon {
+  display: none;
+}
+
+.logout-popup-cont {
+  width: 250px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  background-color: rgb(36, 35, 35);
+  padding-bottom: 30px;
+}
+
+.logout-popup-text {
+  color: white;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.logout-popup-btn-cont {
+  width: 200px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.logout-popup-cancel-btn {
+  font-family: "Roboto";
+  border: 1px solid grey;
+  background-color: transparent;
+  border-radius: 3px;
+  color: white;
+  padding: 3px 8px;
+  cursor: pointer;
+}
+
+.logout-popup-confirm-btn {
+  font-family: "Roboto";
+  border: none;
+  background-color: rgb(22, 93, 233);
+  border-radius: 3px;
+  color: white;
+  padding: 3px 8px;
+  cursor: pointer;
+}
+
 @media (max-width: 500px) {
   .header-bg-container {
     height: 7vh;
@@ -21,5 +80,16 @@
   .header-heading {
     font-size: 20px;
     margin-left: 20px;
+  }
+
+  .header-logout-btn {
+    display: none;
+  }
+
+  .header-logout-icon {
+    display: inline;
+    color: white;
+    margin-right: 20px;
+    font-size: 22px;
   }
 }

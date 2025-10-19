@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { IoClose } from "react-icons/io5";
 
 import Header from "../Header";
 import { MdVerified } from "react-icons/md";
@@ -11,7 +12,7 @@ import io from "socket.io-client";
 
 import "./index.css";
 
-const socket = io.connect("http://localhost:3001");
+const socket = io.connect("https://post-backkend.onrender.com");
 
 const Home = () => {
   const [isCommentsOpen, setIscommentsOpen] = useState(false);
@@ -20,6 +21,9 @@ const Home = () => {
   const [commentsList, setCommentsList] = useState([]);
   const [isLiked, setIsLiked] = useState(false);
   const [renderr, setRenderr] = useState(1);
+  const [selectedComment, setSelectedComment] = useState(null);
+
+  const timeoutRef = useRef(null);
 
   useEffect(() => {
     getUserDetails();
@@ -30,7 +34,7 @@ const Home = () => {
   }, [commentsList, renderr]);
 
   const getUserDetails = async () => {
-    const url = "http://localhost:3001/user";
+    const url = "https://post-backkend.onrender.com/user";
     const userData = { userMail: localStorage.getItem("email") };
     const options = {
       method: "POST",
@@ -51,7 +55,7 @@ const Home = () => {
   };
 
   const getComments = async () => {
-    const url = "http://localhost:3001/comments";
+    const url = "https://post-backkend.onrender.com/comments";
     const options = {
       method: "GET",
     };
@@ -64,7 +68,7 @@ const Home = () => {
 
   const commentPosted = async (event) => {
     event.preventDefault();
-    const url = "http://localhost:3001/comments";
+    const url = "https://post-backkend.onrender.com/comments";
     const commentDetails = {
       userid: userDetails.id,
       comment: inpComment,
@@ -78,9 +82,37 @@ const Home = () => {
       },
       body: JSON.stringify(commentDetails),
     };
+    if (inpComment.length !== 0) {
+      await fetch(url, options);
+      setInpComment("");
+      socket.emit("update_db", "1");
+    }
+  };
+
+  const mouseDown = (event) => {
+    const id = event.currentTarget.id;
+    timeoutRef.current = setTimeout(() => {
+      setSelectedComment(Number(id));
+    }, 500);
+  };
+
+  const mouseUp = () => {
+    clearTimeout(timeoutRef.current);
+  };
+
+  const removeComment = async (event) => {
+    const id = event.currentTarget.id;
+    const url = "https://post-backkend.onrender.com/comments";
+    const options = {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ commentid: id }),
+    };
     await fetch(url, options);
-    setInpComment("");
-    socket.emit("update_db", "1");
+    setSelectedComment(null);
+    getComments();
   };
 
   return (
@@ -97,7 +129,7 @@ const Home = () => {
           <MdVerified className="home-profile-tic" />
         </div>
         <img
-          src="https://res.cloudinary.com/dnxaaxcjv/image/upload/v1760772305/raja-sabha_tflvya.jpg"
+          src="https://res.cloudinary.com/dnxaaxcjv/image/upload/v1760858716/raja-sabha_xghmo3.jpg"
           alt="post"
           className="home-post"
         />
@@ -127,7 +159,30 @@ const Home = () => {
             {commentsList.length !== 0 ? (
               <ul className="home-comments-list-cont">
                 {commentsList.map((i) => (
-                  <li key={i.id} className="home-comment-item">
+                  <li
+                    onMouseDown={
+                      i.userid === userDetails.id ? mouseDown : undefined
+                    }
+                    onMouseUp={
+                      i.userid === userDetails.id ? mouseUp : undefined
+                    }
+                    onMouseLeave={
+                      i.userid === userDetails.id ? mouseUp : undefined
+                    }
+                    onTouchStart={
+                      i.userid === userDetails.id ? mouseDown : undefined
+                    }
+                    onTouchEnd={
+                      i.userid === userDetails.id ? mouseUp : undefined
+                    }
+                    key={i.id}
+                    id={i.id}
+                    className={`home-comment-item ${
+                      i.userid === userDetails.id &&
+                      i.id === selectedComment &&
+                      "clicked-to-be-removed"
+                    }`}
+                  >
                     <img
                       className="home-comment-profile-pic"
                       alt="comment-profile-pic"
@@ -137,6 +192,14 @@ const Home = () => {
                       <p className="home-comment-username">{i.username}</p>
                       <p className="home-coment-comm">{i.comment}</p>
                     </div>
+                    {userDetails.id === i.userid &&
+                      i.id === selectedComment && (
+                        <IoClose
+                          id={i.id}
+                          onClick={removeComment}
+                          className="home-comment-remove"
+                        />
+                      )}
                   </li>
                 ))}
               </ul>
