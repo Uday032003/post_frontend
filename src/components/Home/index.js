@@ -12,7 +12,9 @@ import io from "socket.io-client";
 
 import "./index.css";
 
-const socket = io.connect("https://post-backkend.onrender.com");
+const socket = io.connect("https://post-backkend.onrender.com", {
+  transports: ["websocket", "polling"],
+});
 
 const Home = () => {
   const [isCommentsOpen, setIscommentsOpen] = useState(false);
