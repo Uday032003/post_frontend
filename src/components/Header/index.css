@@ -74,11 +74,11 @@
 
 @media (max-width: 500px) {
   .header-bg-container {
-    height: 7vh;
+    height: 10vh;
   }
 
   .header-heading {
-    font-size: 20px;
+    font-size: 22px;
     margin-left: 20px;
   }
 
