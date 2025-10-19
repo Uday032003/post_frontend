@@ -9,7 +9,7 @@ const Header = () => {
   const navigate = useNavigate();
   return (
     <div className="header-bg-container">
-      <h1 className="header-heading">UdayKiran</h1>
+      <h1 className="header-heading">Fresite</h1>
       <Popup
         modal
         trigger={
